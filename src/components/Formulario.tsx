@@ -73,7 +73,7 @@ const Formulario = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
       </div>
       <Slider
         value={formData.edadEquipo}
-        onChange={(e, newValue) => handleSliderChange("edadEquipo", newValue as number)}
+        onChange={(_, newValue) => handleSliderChange("edadEquipo", newValue as number)}
         valueLabelDisplay="auto"
         valueLabelFormat={(value) => `${value} años`}
         min={0}
@@ -213,7 +213,7 @@ const Formulario = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
       </div>
       <Slider
         value={formData.inflacionEsperada}
-        onChange={(e, newValue) => handleSliderChange("inflacionEsperada", newValue as number)}
+        onChange={(_, newValue) => handleSliderChange("inflacionEsperada", newValue as number)}
         valueLabelDisplay="auto"
         valueLabelFormat={(value) => `${value} %`}
         min={0}
