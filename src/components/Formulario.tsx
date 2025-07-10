@@ -40,6 +40,8 @@ const Formulario = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
     onSubmit(formData);
   };
 
+  const isHorizonteValido = formData.horizonteEvaluacion > formData.edadEquipo + 1;
+
   return (
     <div style={{ padding: 20 }}>
       <h3 style={{ fontSize: '2rem', color: '#1a237e', fontWeight: 700, marginBottom: 24 }}>Parámetros del Análisis</h3>
@@ -221,7 +223,19 @@ const Formulario = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
         step={0.1}
       />
       <br /><br />
-      <Button variant="contained" onClick={handleSubmit}>
+      <TextField
+        label={<span style={{ fontSize: '1.1rem', color: '#1a237e', fontWeight: 600 }}>Horizonte de evaluación (años)</span>}
+        type="number"
+        name="horizonteEvaluacion"
+        value={formData.horizonteEvaluacion}
+        onChange={handleChange}
+        fullWidth
+        required
+        error={!isHorizonteValido}
+        helperText={!isHorizonteValido ? "El horizonte debe ser al menos 2 años mayor que la edad actual del equipo." : ""}
+      />
+      <br /><br />
+      <Button variant="contained" onClick={handleSubmit} disabled={!isHorizonteValido}>
         Realizar Análisis
       </Button>
     </div>

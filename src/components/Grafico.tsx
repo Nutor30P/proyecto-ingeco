@@ -4,11 +4,12 @@ import { Card, CardContent, Typography } from "@mui/material";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area } from "recharts";
 
 const Grafico = ({ data }: { data: any }) => {
+  console.log("Datos recibidos por el gráfico:", data);
   // Convertir valores a millones para el eje Y
-  const dataMillones = data.map((d: any) => ({
+  const dataMillones = (data || []).map((d: any) => ({
     ...d,
-    costMaintain: d.costMaintain / 1_000_000,
-    costReplace: d.costReplace / 1_000_000,
+    costMaintain: Number(d.costMaintain) / 1_000_000,
+    costReplace: Number(d.costReplace) / 1_000_000,
   }));
 
   return (
@@ -18,10 +19,7 @@ const Grafico = ({ data }: { data: any }) => {
           Análisis de Costos Totales - Compresor Industrial
         </Typography>
         <ResponsiveContainer width="100%" height={320}>
-          <LineChart
-            data={dataMillones}
-            margin={{ left: 60, right: 20, top: 5, bottom: 5 }}
-          >
+          <LineChart data={dataMillones.length ? dataMillones : []}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
               dataKey="year"

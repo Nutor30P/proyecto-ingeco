@@ -109,6 +109,16 @@ function calcularAnalisisVPN(input: AnalisisInput): AnalisisResultado {
     vpnMantenerPrevio = vpnMantener;
   }
 
+  // Si solo hay un punto, agrega uno más para el año siguiente
+  if (datosGrafico.length === 1) {
+    const last = datosGrafico[0];
+    datosGrafico.push({
+      year: last.year + 1,
+      costMaintain: last.costMaintain,
+      costReplace: last.costReplace,
+    });
+  }
+
   // Nivel de confianza (puedes mejorarlo según tu modelo)
   let confianzaModelo = mejorConfianza;
   if (mejorAhorro > 0 && mejorAhorro / valorInicial > 0.15) confianzaModelo = 90;
