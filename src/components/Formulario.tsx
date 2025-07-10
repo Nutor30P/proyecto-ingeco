@@ -31,12 +31,6 @@ const Formulario = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
     }
   };
 
-  const handleSelectChange = (e: any) => {
-    const { name, value } = e.target;
-    if (name) {
-      setFormData((prevData) => ({ ...prevData, [name]: value }));
-    }
-  };
 
   const handleSliderChange = (name: string, value: number) => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));

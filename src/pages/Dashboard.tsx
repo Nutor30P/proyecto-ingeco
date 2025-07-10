@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+
 import Formulario from "../components/Formulario";
 import Grafico from "../components/Grafico";
 import "../App.css"; // Asegúrate de importar los estilos
+import { useState } from "react";
 
 type AnalisisInput = {
   valorInicial: number;

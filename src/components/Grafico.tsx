@@ -1,5 +1,5 @@
 // src/components/Grafico.tsx
-import React from "react";
+
 import { Card, CardContent, Typography } from "@mui/material";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area } from "recharts";
 

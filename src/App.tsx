@@ -1,5 +1,4 @@
 // src/App.tsx
-import React from "react";
 import { CssBaseline, Container } from "@mui/material";
 import Dashboard from "./pages/Dashboard";
 
